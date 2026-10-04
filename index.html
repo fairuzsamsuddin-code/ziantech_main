@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ziantech Solutions Sdn Bhd</title>
 <meta name="description" content="Ziantech Solutions Sdn Bhd - a Malaysian ICT company with a hands-on approach.">
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -16,8 +17,8 @@
     --bg:#ffffff;
     --band:#f4f5f8;
     --dark:#14161c;
-    --accent:#4b3a8f;      /* Ziantech purple */
-    --accent-soft:#c9c1ee; /* readable on dark */
+    --accent:#4b3a8f;
+    --accent-soft:#c9c1ee;
     --pad:clamp(20px,5vw,64px);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -27,13 +28,10 @@
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .label{font-family:'IBM Plex Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
 
-  /* Header */
   header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
-  .bar{max-width:1200px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand <img src="logo.png" alt="Ziantech Solutions Sdn Bhd">
-  .brand b{display:block;font-weight:600;font-size:1.25rem;letter-spacing:-.01em;line-height:1.1;color:var(--accent)}
-  .brand small{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+  .bar{max-width:1200px;margin:0 auto;padding:12px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center}
+  .brand img{display:block;height:48px;width:auto;max-width:220px;object-fit:contain}
   nav ul{display:flex;gap:28px;list-style:none}
   nav a{font-size:.95rem;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
   nav a:hover{border-color:var(--line)}
@@ -41,14 +39,12 @@
   .toggle{display:none;background:none;border:1px solid var(--line);width:44px;height:44px;cursor:pointer;color:var(--ink)}
   .toggle svg{width:22px;height:22px}
 
-  /* Intro */
   .intro{max-width:1200px;margin:0 auto;padding:clamp(56px,9vw,120px) var(--pad) clamp(40px,6vw,72px);display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,5vw,72px)}
   .intro .label{padding-top:.7rem;border-top:2px solid var(--accent);height:max-content}
   .intro p{font-size:clamp(1.15rem,2.1vw,1.6rem);line-height:1.6;font-weight:300;max-width:46em;text-wrap:pretty}
   .intro p strong{font-weight:600}
   .intro p em{font-style:italic;font-weight:500;color:var(--accent)}
 
-  /* Facts strip */
   .facts{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
   .facts dl{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .facts div{padding:24px 24px 24px 0}
@@ -56,12 +52,9 @@
   .facts dt{font-family:'IBM Plex Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
   .facts dd{font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-.01em;margin-top:4px;font-variant-numeric:tabular-nums lining-nums}
 
-  /* Image */
   .photo{max-width:1200px;margin:clamp(40px,6vw,72px) auto 0;padding:0 var(--pad)}
   .photo img{display:block;width:100%;aspect-ratio:21/8;object-fit:cover;background:var(--band)}
-  .photo figcaption{margin-top:10px}
 
-  /* Contact */
   #contact{background:var(--dark);color:#eceef3;margin-top:clamp(64px,10vw,140px)}
   .contact{max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,104px) var(--pad);display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
   .contact h2{font-size:clamp(1.8rem,3.6vw,2.8rem);font-weight:400;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
@@ -91,7 +84,7 @@
     .facts div+div{border-top:1px solid var(--line)}
     .photo img{aspect-ratio:16/9}
   }
-  @media (max-width:480px){.row{grid-template-columns:1fr;gap:4px}}
+  @media (max-width:480px){.row{grid-template-columns:1fr;gap:4px}.brand img{height:40px}}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -100,14 +93,7 @@
 <header>
   <div class="bar">
     <a class="brand" href="index.html" aria-label="Ziantech Solutions Sdn Bhd - home">
-      <!-- Placeholder logo mark: replace with your original logo file, e.g. <img src="logo.png" alt="Ziantech Solutions Sdn Bhd"> -->
-      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-        <circle cx="24" cy="24" r="21" stroke="#b9794a" stroke-width="2"/>
-        <ellipse cx="24" cy="24" rx="9" ry="21" stroke="#b9794a" stroke-width="1.5"/>
-        <path d="M3 24h42" stroke="#b9794a" stroke-width="1.5"/>
-        <path d="M14 15h20l-12 18h14" stroke="#4b3a8f" stroke-width="4" stroke-linecap="square"/>
-      </svg>
-      <span><b>ZianTech</b><small>Solutions Sdn Bhd</small></span>
+      <img src="logo.png" alt="Ziantech Solutions Sdn Bhd">
     </a>
     <button class="toggle" id="toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
