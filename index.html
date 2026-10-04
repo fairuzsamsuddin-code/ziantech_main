@@ -1,48 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziantech Solutions Sdn Bhd</title>
-    <!-- Tailwind CSS for rapid styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for modern typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ziantech Solutions Sdn Bhd</title>
+<meta name="description" content="Ziantech Solutions Sdn Bhd - a Malaysian ICT company with a hands-on approach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14161c;
+    --muted:#4b5160;
+    --line:#dfe2e8;
+    --bg:#ffffff;
+    --band:#f4f5f8;
+    --dark:#14161c;
+    --accent:#4b3a8f;      /* Ziantech purple */
+    --accent-soft:#c9c1ee; /* readable on dark */
+    --pad:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .label{font-family:'IBM Plex Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+  .bar{max-width:1200px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand svg{width:44px;height:44px;flex:none}
+  .brand b{display:block;font-weight:600;font-size:1.25rem;letter-spacing:-.01em;line-height:1.1;color:var(--accent)}
+  .brand small{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav a{font-size:.95rem;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+  nav a:hover{border-color:var(--line)}
+  nav a[aria-current="page"]{border-color:var(--accent);color:var(--accent)}
+  .toggle{display:none;background:none;border:1px solid var(--line);width:44px;height:44px;cursor:pointer;color:var(--ink)}
+  .toggle svg{width:22px;height:22px}
+
+  /* Intro */
+  .intro{max-width:1200px;margin:0 auto;padding:clamp(56px,9vw,120px) var(--pad) clamp(40px,6vw,72px);display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,5vw,72px)}
+  .intro .label{padding-top:.7rem;border-top:2px solid var(--accent);height:max-content}
+  .intro p{font-size:clamp(1.15rem,2.1vw,1.6rem);line-height:1.6;font-weight:300;max-width:46em;text-wrap:pretty}
+  .intro p strong{font-weight:600}
+  .intro p em{font-style:italic;font-weight:500;color:var(--accent)}
+
+  /* Facts strip */
+  .facts{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
+  .facts dl{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .facts div{padding:24px 24px 24px 0}
+  .facts div+div{padding-left:24px;border-left:1px solid var(--line)}
+  .facts dt{font-family:'IBM Plex Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
+  .facts dd{font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-.01em;margin-top:4px;font-variant-numeric:tabular-nums lining-nums}
+
+  /* Image */
+  .photo{max-width:1200px;margin:clamp(40px,6vw,72px) auto 0;padding:0 var(--pad)}
+  .photo img{display:block;width:100%;aspect-ratio:21/8;object-fit:cover;background:var(--band)}
+  .photo figcaption{margin-top:10px}
+
+  /* Contact */
+  #contact{background:var(--dark);color:#eceef3;margin-top:clamp(64px,10vw,140px)}
+  .contact{max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,104px) var(--pad);display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
+  .contact h2{font-size:clamp(1.8rem,3.6vw,2.8rem);font-weight:400;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+  .contact .label{color:var(--accent-soft);margin-bottom:16px;display:block}
+  .rows{border-top:1px solid #343846}
+  .row{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid #343846}
+  .row .label{color:#9aa1b2;margin:0;padding-top:3px}
+  .row address{font-style:normal}
+  .row a{border-bottom:1px solid #5b5f72;transition:border-color .2s,color .2s}
+  .row a:hover{color:var(--accent-soft);border-color:var(--accent-soft)}
+
+  footer{background:var(--dark);border-top:1px solid #343846;color:#9aa1b2}
+  footer .in{max-width:1200px;margin:0 auto;padding:20px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.82rem}
+
+  @media (max-width:900px){
+    .toggle{display:inline-flex;align-items:center;justify-content:center}
+    nav{position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+    nav.open{display:block}
+    nav ul{flex-direction:column;gap:0;padding:8px var(--pad) 16px}
+    nav li{border-bottom:1px solid var(--line)}
+    nav li:last-child{border:0}
+    nav a{display:block;padding:14px 0;border-bottom:0}
+    .intro{grid-template-columns:1fr}
+    .contact{grid-template-columns:1fr}
+    .facts dl{grid-template-columns:1fr}
+    .facts div,.facts div+div{padding:18px 0;border-left:0}
+    .facts div+div{border-top:1px solid var(--line)}
+    .photo img{aspect-ratio:16/9}
+  }
+  @media (max-width:480px){.row{grid-template-columns:1fr;gap:4px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
-    
-    <!-- Navigation / Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-10">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center">
-            
-            <!-- Logo Section -->
-            <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                <!-- SVG Wireframe Globe -->
-                <svg class="w-8 h-8 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                </svg>
-                <span class="text-2xl font-bold tracking-tight text-indigo-900">zian<span class="text-gray-500 italic font-medium">Tech</span></span>
-            </div>
+<body>
 
-            <!-- Navigation Links -->
-            <nav>
-                <ul class="flex flex-wrap justify-center space-x-6 text-sm font-medium text-gray-500">
-                    <li><a href="#" class="text-gray-900 border-b-2 border-indigo-600 pb-1">Main</a></li>
-                    <li><a href="#" class="hover:text-gray-900 hover:border-b-2 hover:border-gray-300 pb-1 transition duration-150">Core Values</a></li>
-                    <li><a href="#" class="hover:text-gray-900 hover:border-b-2 hover:border-gray-300 pb-1 transition duration-150">Business Offerings</a></li>
-                    <li><a href="#" class="hover:text-gray-900 hover:border-b-2 hover:border-gray-300 pb-1 transition duration-150">Partnerships</a></li>
-                    <li><a href="#" class="hover:text-gray-900 hover:border-b-2 hover:border-gray-300 pb-1 transition duration-150">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="Ziantech Solutions Sdn Bhd - home">
+      <!-- Placeholder logo mark: replace with your original logo file, e.g. <img src="logo.png" alt="Ziantech Solutions Sdn Bhd"> -->
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="21" stroke="#b9794a" stroke-width="2"/>
+        <ellipse cx="24" cy="24" rx="9" ry="21" stroke="#b9794a" stroke-width="1.5"/>
+        <path d="M3 24h42" stroke="#b9794a" stroke-width="1.5"/>
+        <path d="M14 15h20l-12 18h14" stroke="#4b3a8f" stroke-width="4" stroke-linecap="square"/>
+      </svg>
+      <span><b>ZianTech</b><small>Solutions Sdn Bhd</small></span>
+    </a>
+    <button class="toggle" id="toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav id="menu" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" aria-current="page">Main</a></li>
+        <li><a href="core-values.html">Core Values</a></li>
+        <li><a href="business-offerings.html">Business Offerings</a></li>
+        <li><a href="partnerships.html">Partnerships</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <!-- Main Content -->
-    <main class="flex-grow max-w-6xl mx-auto px-6 py-12 w-full">
-        <!-- Introduction Paragraph -->
-        <section class="mb-12 text-gray-700 leading-relaxed text-lg max-w-5xl">
-            <p>
-                <strong class="text-gray-900 font-semibold">Ziantech Solutions</strong> was established in December 20
+<main id="main">
+  <section class="intro">
+    <span class="label">Main</span>
+    <p><strong>Ziantech Solutions</strong> was established in December 2011 and began operating in the local ICT market in January 2014. Although a relatively new company, our team possesses a combined experience of more than 20 years in the industry. Each member of our team has previously held positions in various segments and business units within the local ICT scene, including Principals, Software Development Houses, and multi-million RM turnover local System Integrator companies. Our <em>"HANDS-ON"</em> approach to our work enables us to adapt to the evolving nature of the business and anticipate future trends.</p>
+  </section>
+
+  <section class="facts" aria-label="Key facts">
+    <dl>
+      <div><dt>Established</dt><dd>December 2011</dd></div>
+      <div><dt>Operating since</dt><dd>January 2014</dd></div>
+      <div><dt>Combined experience</dt><dd>20+ years</dd></div>
+    </dl>
+  </section>
+
+  <figure class="photo">
+    <img src="https://datacenterfloortiles.com/wp-content/uploads/2021/01/Data-Center-Raised-Floor-Server-Room.jpg" alt="Data center server room with raised white floor and rows of black server racks" loading="lazy">
+  </figure>
+</main>
+
+<section id="contact">
+  <div class="contact">
+    <div>
+      <span class="label">Contact</span>
+      <h2>Ziantech Solutions Sdn Bhd</h2>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <span class="label">Address</span>
+        <address>No 17-1, Jalan Atmosphere 6,<br>Pusat Perniagaan Atmosphere,<br>43300 Seri Kembangan,<br>Selangor MALAYSIA</address>
+      </div>
+      <div class="row">
+        <span class="label">Phone</span>
+        <a href="tel:+60389539926">+(60)3-8953 9926</a>
+      </div>
+      <div class="row">
+        <span class="label">Email</span>
+        <a href="mailto:info@ziantech.com">info@ziantech.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <span>© <span id="yr">2026</span> Ziantech Solutions Sdn Bhd</span>
+    <span>Seri Kembangan, Selangor, Malaysia</span>
+  </div>
+</footer>
+
+<script>
+  const t=document.getElementById('toggle'),m=document.getElementById('menu');
+  t.addEventListener('click',()=>{const o=m.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');t.setAttribute('aria-expanded',false)}));
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
